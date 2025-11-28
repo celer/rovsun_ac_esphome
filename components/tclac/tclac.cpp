@@ -7,6 +7,7 @@
 #include "esphome.h"
 #include "esphome/core/defines.h"
 #include "tclac.h"
+#include <stdio.h>
 
 namespace esphome{
 namespace tclac{
@@ -575,9 +576,14 @@ void tclacClimate::sendData(byte * message, byte size) {
 String tclacClimate::getHex(byte *message, byte size) {
 	String raw;
 	for (int i = 0; i < size; i++) {
-		raw += "\n" + String(message[i]);
+		char hexbuf[3];
+		// Format hex value with two uppercase digits
+		snprintf(hexbuf, sizeof(hexbuf), "%02X", message[i]);
+		// Append "[pos] 0xHH (DDD)"
+		raw += "[" + String(i) + "] 0x" + String(hexbuf) + " (" + String((int)message[i]) + ")";
+		if (i < size - 1)
+			raw += "\n";
 	}
-	raw.toUpperCase();
 	return raw;
 }
 
