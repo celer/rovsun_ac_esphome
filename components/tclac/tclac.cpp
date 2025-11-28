@@ -79,10 +79,11 @@ void tclacClimate::loop()  {
 		raw = getHex(dataRX, sizeof(dataRX));
 		
 		ESP_LOGD("TCL", "RX full : %s ", raw.c_str());
-		
+
+		ESP_LOGD("TCL", "Invalid checksum %d expected %d", check, dataRX[60]);
+
 		// Verify checksum
 		if (false && check != dataRX[60]) {
-			ESP_LOGD("TCL", "Invalid checksum %x expected %x", check, dataRX[60]);
 			tclacClimate::dataShow(0,0);
 			return;
 		} else {
