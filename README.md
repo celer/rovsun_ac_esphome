@@ -27,6 +27,7 @@ wifi module is active and available.
 
 
 #### Original Readme is below ####
+---
 
 An external component for TCL air conditioners and similar models for Home Assistant using ESPHome.
 
