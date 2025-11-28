@@ -685,7 +685,7 @@ void tclacClimate::set_vertical_swing_direction(VerticalSwingDirection direction
 	}
 }
 // Получение доступных режимов работы кондиционера
-void tclacClimate::set_supported_modes(const std::set<climate::ClimateMode> &modes) {
+void tclacClimate::set_supported_modes(climate::ClimateModeMask modes) {
 	this->supported_modes_ = modes;
 }
 // Получение режима качания горизонтальных заслонок
@@ -698,15 +698,15 @@ void tclacClimate::set_horizontal_swing_direction(HorizontalSwingDirection direc
 	}
 }
 // Получение доступных скоростей вентилятора
-void tclacClimate::set_supported_fan_modes(const std::set<climate::ClimateFanMode> &modes){
+void tclacClimate::set_supported_fan_modes(climate::ClimateFanModeMask modes){
 	this->supported_fan_modes_ = modes;
 }
 // Получение доступных режимов качания заслонок
-void tclacClimate::set_supported_swing_modes(const std::set<climate::ClimateSwingMode> &modes) {
+void tclacClimate::set_supported_swing_modes(climate::ClimateSwingModeMask modes) {
 	this->supported_swing_modes_ = modes;
 }
 // Получение доступных предустановок
-void tclacClimate::set_supported_presets(const std::set<climate::ClimatePreset> &presets) {
+void tclacClimate::set_supported_presets(climate::ClimatePresetMask presets) {
   this->supported_presets_ = presets;
 }
 
