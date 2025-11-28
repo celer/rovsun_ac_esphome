@@ -82,7 +82,7 @@ void tclacClimate::loop()  {
 		
 		// Проверяем контрольную сумму
 		if (check != dataRX[60]) {
-			ESP_LOGD("TCL", "Invalid checksum %x", check);
+			ESP_LOGD("TCL", "Invalid checksum %x expected %x", check, dataRX[60]);
 			tclacClimate::dataShow(0,0);
 			return;
 		} else {
